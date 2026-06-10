@@ -33,8 +33,6 @@ Open CLion, select **CS370\_Fa26** from the main screen (you may need to close a
 
 Finally, select **Reload changes** which should build the project and add it to the dropdown menu at the top of the IDE window.
 
-**Note:** The solution **Model.h** and **bumpTex.frag** files are in the common folder in the outer **CS370\_Fa26** directory.
-
 ## Tangent Space
 
 In order to apply bump mapping, we need to tranform the various lighting vectors into *tangent space*, i.e. the plane that is *tangent* to the surface with the vertex becoming the origin of the new coordinate system. This transformation makes the surface normal at the vertex the new *z*-axis (which simplifies the application of the bump map texture). Two additional perpendicular vectors, known as the *tangent* and *bitangent*, will then define the tangent plane (i.e. become the *x* and *y* axes) - see the following [LearnOpenGL - Normal Mapping](https://learnopengl.com/Advanced-Lighting/Normal-Mapping)
@@ -63,9 +61,9 @@ where the *vertices*, *uvs*, and *normal* vectors will be the data loaded from t
 
 ### Tasks
 
-- Add code in **Model.h** to **buildModel()** to compute the tangents and bitangents *after loading the model* using the **computeTangentBasis()** function.
+- Add code in **Model.cpp** to **buildModel()** to compute the tangents and bitangents *after loading the model* using the **computeTangentBasis()** function. Note that all of the vector parameters should be passed by *reference*.
 
-> **Note:** We have corresponding attribute buffers for the tangent and bitangent vectors that will correspond to additional shader variables in the vertex shader.
+> **Note:** The function will load the data into corresponding attribute buffers for the tangent and bitangent vectors that will be associated with additional shader vertex attribute variables in the vertex shader.
 
 - Add code to **bumpTex.frag** to transform the view vector to tangent space using the dot product with the basis vectors
 
@@ -91,6 +89,8 @@ We then compute the Phong model diffuse and specular terms with this perturbed n
 
 ### Tasks
 
+- Add code to **textures.cpp** to load the additional normal maps for the golf ball "dimples" using texture id's *GolfNormOut* and *GolfNormIn* (and the same filter options as the *GolfNormFlat* normal map).
+
 - Add code to **bumpTex.frag** to compute the perturbed normal from the normal map color
 
 ```cpp
@@ -101,7 +101,7 @@ We then compute the Phong model diffuse and specular terms with this perturbed n
 
 ## Combining Texture Colors
 
-The last step to applying bump mapping is to *combine* the color from the bump map lighting color with the base texture color for the final fragment color. 
+The last step to computing bump mapping is to *combine* the color from the bump map lighting color with the base texture color for the final fragment color. 
 
 Typically, since the lighting is an attenuation of the color channels, we will *multiply* the lighting effect with the base texture.
 
@@ -114,6 +114,22 @@ Typically, since the lighting is an attenuation of the color channels, we will *
 ```
 
 > **Note:** If the base texture utilizes the alpha channel (or we include a translucent material), we could also incorporate alpha blending into this effect.
+
+## Rendering Bumpmapped Objects
+
+Finally, to render an object with bump mapping, we can use a drawing function (located in **DrawUtils.cpp** in the **common** folder) which is a combination of lighting (using the base texture rather than a material) and multitexturing (for the normal map)
+
+```cpp
+void drawBumpMappedObject(Model obj, GLuint baseTexID, GLuint normMapID, vec3 eye, GLint lightOn[]);
+```
+
+where the *obj* is the **Model** to render, **baseTexID** is the base texture id, **normMapID** is the normal map texture id, **eye** is the camera position, and **lightOn** is an array for the on/off state of each light.
+
+### Tasks
+
+- Add code to **render.cpp** in **render\_scene()** to draw the **sphere** using the *Golf* texture id for the base texture and the **normalMapID** texture id (which is assigned in the logic) for the normal map texture.
+
+**Note:** Since the tangents and bitangents were added when we loaded the sphere model, we could also use the same model to render any other sphere objects, i.e. basic lighting/material, single texture, etc.
 
 ## Compiling and running the program
 
