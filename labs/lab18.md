@@ -61,9 +61,11 @@ where the *vertices*, *uvs*, and *normal* vectors will be the data loaded from t
 
 ### Tasks
 
-- Add code in **Model.cpp** to **buildModel()** to compute the tangents and bitangents *after loading the model* using the **computeTangentBasis()** function. Note that all of the vector parameters should be passed by *reference*.
+- Add code in **Model.cpp** to **buildBumpModel()** to compute the tangents and bitangents *after loading the model* using the **computeTangentBasis()** function.
 
-> **Note:** The function will load the data into corresponding attribute buffers for the tangent and bitangent vectors that will be associated with additional shader vertex attribute variables in the vertex shader.
+> **Note:** The **buildBuffers()** function will load the data into corresponding attribute buffers for the tangent and bitangent vectors that will be associated with additional shader vertex attribute variables in the vertex shader.
+
+- Add code in **geometry.cpp** to **build\_geometry_()** to load the *sphere* object with bumpmapping, i.e. use the **buildBumpModel()** function which will compute tangents and bitangents.
 
 - Add code to **bumpTex.frag** to transform the view vector to tangent space using the dot product with the basis vectors
 
@@ -127,9 +129,9 @@ where the *obj* is the **Model** to render, **baseTexID** is the base texture id
 
 ### Tasks
 
-- Add code to **render.cpp** in **render\_scene()** to draw the **sphere** using the *Golf* texture id for the base texture and the **normalMapID** texture id (which is assigned in the logic) for the normal map texture.
+- Add code to **render.cpp** in **render\_scene()** to draw the **sphere** using bumpmapping with the *Golf* texture id for the base texture and the **normalMapID** texture id (which is assigned in the logic) for the normal map texture (don't forget to also pass *eye* and *lightOn*).
 
-**Note:** Since the tangents and bitangents were added when we loaded the sphere model, we could also use the same model to render any other sphere objects, i.e. basic lighting/material, single texture, etc.
+**Note:** Since the tangents and bitangents were added when we loaded the sphere model, we could also use the same model to render other sphere objects with different effects, i.e. basic lighting/material, single texture, etc.
 
 ## Compiling and running the program
 
