@@ -45,7 +45,9 @@ where *program* is the shader program and *\*name* is a string with the name of 
 
 ### Tasks
 
-- If you look in the **ShaderUtils.cpp** file at the **buildMultiTextureShader()** function, you'll see a reference assignment for the **blendMap** shader variable which will be the sampler for the second (dirt) texture.
+- Add code in **shaders.h** in **build\_shaders()** to add a second reference assignment for **multi\_tex\_blend\_loc** for the **blendMap** shader variable which will be the sampler for the second (dirt) texture.
+
+- Add code in **shaders.h** in **build\_shaders()** to add a reference assignment for **multi\_tex\_mix_loc** for the **mixFactor** shader variable which will control how much of each texture map is used. **Note:** This reference is also for a *uniform* location variable.
 
 ### Multiple Texture Units
 
@@ -73,19 +75,17 @@ where *target* is a symbolic constant denoting the *type* of texture we are bind
 
 ### Tasks
 
-- Add code in **draw.cpp** to **drawMultiTextureObject()** to set the *multi\_tex\_base\_loc* to 0, i.e. we will bind the base texture to texture unit 0, using **glUniform1i()** (since this is an integer value).
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to set the *multi\_tex\_base\_loc* to 0, i.e. we will bind the base texture to texture unit 0, using **glUniform1i()** (since this is an integer value).
 
-- Add code in **draw.cpp** to **drawMultiTextureObject()** to make texture unit 0 active using **glActiveTexture()** with **GL_TEXTURE0**.
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to make texture unit 0 active using **glActiveTexture()** with **GL_TEXTURE0**.
 
-- Add code in **draw.cpp** to **drawMultiTextureObject()** to bind the *texID1* texture id parameter to the active texture unit (texture unit 0).
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to bind the *baseID* texture enum index variable parameter from the *TextureIDs[]* array to the active texture unit (texture unit 0).
 
-- Add code in **draw.cpp** to **drawMultiTextureObject()** to set the *multi\_tex\_blend\_loc* to 1, i.e. we will bind the dirt texture to texture unit 1, using **glUniform1i()** (since this is an integer value).
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to set the *multi\_tex\_blend\_loc* to 1, i.e. we will bind the dirt texture to texture unit 1, using **glUniform1i()** (since this is an integer value).
 
-- Add code in **draw.cpp** to **drawMultiTextureObject()** to make texture unit 1 active using **glActiveTexture()** with **GL_TEXTURE1**.
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to make texture unit 1 active using **glActiveTexture()** with **GL_TEXTURE1**.
 
-- Add code in **draw.cpp** to **drawMultiTextureObject()** to bind the *texID2* texture id parameter to the active texture unit (texture unit 1).
-
-- Add code in **render.cpp** to **render\_scene()** to call **drawMultiTextureObject()** with the *cube* (object), the *Carpet* index from the *TextureIDs[]* array (base texture), and *multiTexID* index from the *TextureIDs[]* array (blank or dirt texture set with the *dirty* flag), and the *mix* variable controlling how much of each texture is used. This will render the carpet blended either with just a blank texture or with a combination of the dirt texture.
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to bind the *blendID* texture enum index variable parameter from the *TextureIDs[]* array to the active texture unit (texture unit 1).
 
 **Note:** Since our shader will be combining colors from both textures, it is important that they each be associated with a texture unit containing an appropriate texture.
 
@@ -101,7 +101,7 @@ Several options can include simple addition of the two colors, simple multiplica
 
 ### Tasks
 
-- Add code in **draw.cpp** to **drawMultiTextureObject()*** to set the *multi\_tex\_mix\_loc* to *mix* using **glUniform1f()** (since this is a floating point value).
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to set the *multi\_tex\_mix\_loc* to *mix* using **glUniform1f()** (since this is a floating point value).
 
 - Add code to **multiTex.frag** to sample *blendMap* at *texCoord* and store the result in *blendColor*
 
@@ -117,11 +117,25 @@ Several options can include simple addition of the two colors, simple multiplica
 
 **Note:** Try other ways of combining the two texture colors to see what effect it produces.
 
+## Rendering Multi-texture Objects
+
+Finally, to render an object with multi-texturing, we can use the **draw\_multi\_tex\_object()** function
+
+```cpp
+void draw_mulit_tex_object(GLuint obj, GLuint baseID, GLuint blendID, GLfloat mix);
+```
+
+where *obj* is the enum constant for the object to render, **baseID** is the base texture enum constant **blendID** is the second texture enum constant, and **mix** is a floating point value to determine the proportion of each texture to use (we are using the linear interpolation **mix()** shader function).
+
+### Tasks
+
+- Add code to **multiTexMesh.cpp** in **render\_scene()** to draw the **Sphere** using multi-texturing with the *Carpet* texture enum constant for the base texture and the **multiTexID** texture variable (which is assigned in the logic) for the second texture.
+
 ## Compiling and running the program
 
 You should be able to build and run the program by selecting **multiTexMesh** from the dropdown menu and clicking the small green arrow towards the right of the top toolbar.
 
-At this point you should see a torus and revolving sphere over a carpet that is mixed with either a blank or "dirt" texture (toggled using enter). Arrow up/down will control the amount of the second texture that is mixed.
+At this point you should see a torus and revolving sphere over a carpet that is mixed with either a blank or "dirt" texture (toggled using enter). Arrow up/down will control the amount of the second texture that is mixed and \<spacebar\> will toggle the animation.
 
 > <img src="images/lab17/multiMesh.png" alt="MultiTexture Mesh Window" height="500"/>
 

@@ -120,10 +120,10 @@ Typically, since the lighting is an attenuation of the color channels, we will *
 Finally, to render an object with bump mapping, we can use the **draw\_bump\_object()** function (located in **drawObjects.h**) which is very similar to the multi-texture drawing function (where now the normal map texture is the blend texture) with the inclusion of the camera position and lights.
 
 ```cpp
-void draw_bump_object(GLuint obj, GLuint baseTexID, GLuint normMapID);
+void draw_bump_object(GLuint obj, GLuint baseID, GLuint normalID);
 ```
 
-where *obj* is the enum constant for the object to render, **baseTexID** is the base texture enum constant, and **normMapID** is the normal map enum constant.
+where *obj* is the enum constant for the object to render, **baseID** is the base texture enum constant, and **normalID** is the normal map enum constant.
 
 ### Tasks
 
@@ -135,7 +135,7 @@ where *obj* is the enum constant for the object to render, **baseTexID** is the 
 
 You should be able to build and run the program by selecting **bumpMesh** from the dropdown menu and clicking the small green arrow towards the right of the top toolbar.
 
-At this point you should see a torus and revolving "golf ball" sphere over a carpet. The \<spacebar\> will toggle the animation, \<enter\> will toggle multi texturing for the carpet, B will toggle bump mapping or simple multi texturing for the golf ball, and G will cycle between different normal maps for the golf ball.
+At this point you should see a torus and revolving "golf ball" sphere over a carpet. The \<spacebar\> will toggle the animation, \<enter\> will toggle multi texturing (arrow up/down will control the amount of the second texture that is mixed) for the carpet/ball, B will toggle bump mapping for the golf ball, and G will cycle between different normal maps for the golf ball.
 
 > <img src="images/lab18/bumpMesh.png" alt="Bump Mapped Mesh Window" height="500"/>
 
