@@ -61,11 +61,11 @@ where the *vertices*, *uvs*, and *normal* vectors will be the data loaded from t
 
 ### Tasks
 
-- Add code in **Model.cpp** to **buildBumpModel()** to compute the tangents and bitangents *after loading the model* using the **computeTangentBasis()** function.
+- Add code in **geometry.h** to **load\_bump\_model()** to compute the tangents and bitangents *after loading the obj file* using the **computeTangentBasis()** function.
 
-> **Note:** The **buildBuffers()** function will load the data into corresponding attribute buffers for the tangent and bitangent vectors that will be associated with additional shader vertex attribute variables in the vertex shader.
+> **Note:** The function will then load the data into corresponding attribute buffers for the tangent and bitangent vectors which will be associated with additional shader vertex attribute variables in the vertex shader.
 
-- Add code in **geometry.cpp** to **build\_geometry_()** to load the *sphere* object with bumpmapping, i.e. use the **buildBumpModel()** function which will compute tangents and bitangents.
+- Add code in **geometry.h** to **build\_geometry()** to load the *sphere* object with bumpmapping, i.e. use the **load\_bump\_model()** function which will compute tangents and bitangents.
 
 - Add code to **bumpTex.frag** to transform the view vector to tangent space using the dot product with the basis vectors
 
@@ -91,15 +91,13 @@ We then compute the Phong model diffuse and specular terms with this perturbed n
 
 ### Tasks
 
-- Add code to **textures.cpp** to load the additional normal maps for the golf ball "dimples" using texture id's *GolfNormOut* and *GolfNormIn* (and the same filter options as the *GolfNormFlat* normal map).
+- Add code to **textures.h** to load the additional normal maps for the golf ball "dimples" using texture id's *GolfNormOut* and *GolfNormIn* (and the same filter options as the *GolfNormFlat* normal map).
 
 - Add code to **bumpTex.frag** to compute the perturbed normal from the normal map color
 
 ```cpp
     vec3 BumpNorm = normalize(2.0f*BumpCol.rgb - 1.0f);
 ```
-
-> **Note:** For this lab we are not including a material, so we assume the base material is simply white. However, we could pass materials to the shader and combine a base material with the bump mapping lighting and base texture for added effect.
 
 ## Combining Texture Colors
 
@@ -115,21 +113,21 @@ Typically, since the lighting is an attenuation of the color channels, we will *
     fragColor = vec4(rgb,1.0)*texture(baseMap, texCoord);
 ```
 
-> **Note:** If the base texture utilizes the alpha channel (or we include a translucent material), we could also incorporate alpha blending into this effect.
+> **Note:** For this lab we are not including a material, but rather combining the lighting effect with the sampled base texture color. If the base texture utilizes the alpha channel (or we include a translucent material), we could also incorporate alpha blending into this effect.
 
 ## Rendering Bumpmapped Objects
 
-Finally, to render an object with bump mapping, we can use a drawing function (located in **DrawUtils.cpp** in the **common** folder) which is a combination of lighting (using the base texture rather than a material) and multitexturing (for the normal map)
+Finally, to render an object with bump mapping, we can use the **draw\_bump\_object()** function (located in **drawObjects.h**) which is very similar to the multi-texture drawing function (where now the normal map texture is the blend texture) with the inclusion of the camera position and lights.
 
 ```cpp
-void drawBumpMappedObject(Model obj, GLuint baseTexID, GLuint normMapID, vec3 eye, GLint lightOn[]);
+void draw_bump_object(GLuint obj, GLuint baseTexID, GLuint normMapID);
 ```
 
-where the *obj* is the **Model** to render, **baseTexID** is the base texture id, **normMapID** is the normal map texture id, **eye** is the camera position, and **lightOn** is an array for the on/off state of each light.
+where *obj* is the enum constant for the object to render, **baseTexID** is the base texture enum constant, and **normMapID** is the normal map enum constant.
 
 ### Tasks
 
-- Add code to **render.cpp** in **render\_scene()** to draw the **sphere** using bumpmapping with the *Golf* texture id for the base texture and the **normalMapID** texture id (which is assigned in the logic) for the normal map texture (don't forget to also pass *eye* and *lightOn*).
+- Add code to **bumpMesh.cpp** in **render\_scene()** to draw the **UVSphere** using bumpmapping with the *Golf* texture id for the base texture and the **normalMapID** texture id (which is assigned in the logic) for the normal map texture.
 
 **Note:** Since the tangents and bitangents were added when we loaded the sphere model, we could also use the same model to render other sphere objects with different effects, i.e. basic lighting/material, single texture, etc.
 
