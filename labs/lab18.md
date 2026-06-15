@@ -127,7 +127,7 @@ where *obj* is the enum constant for the object to render, **baseTexID** is the 
 
 ### Tasks
 
-- Add code to **bumpMesh.cpp** in **render\_scene()** to draw the **UVSphere** using bumpmapping with the *Golf* texture id for the base texture and the **normalMapID** texture id (which is assigned in the logic) for the normal map texture.
+- Add code to **bumpMesh.cpp** in **render\_scene()** to draw the **UVSphere** using bumpmapping with the *Golf* texture enum constant for the base texture and the **normalMapID** texture variable (which is assigned in the logic) for the normal map texture.
 
 **Note:** Since the tangents and bitangents were added when we loaded the sphere model, we could also use the same model to render other sphere objects with different effects, i.e. basic lighting/material, single texture, etc.
 
