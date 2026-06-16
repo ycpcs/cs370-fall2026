@@ -101,7 +101,7 @@ Several options can include simple addition of the two colors, simple multiplica
 
 ### Tasks
 
-- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to set the *multi\_tex\_mix\_loc* to *mix* using **glUniform1f()** (since this is a floating point value).
+- Add code in **drawObjects.h** to **draw\_multi\_tex\_object()** to set the *multi\_tex\_mix\_loc* to the *mix* parameter variable using **glUniform1f()** (since this is a floating point value).
 
 - Add code to **multiTex.frag** to sample *blendMap* at *texCoord* and store the result in *blendColor*
 
@@ -122,10 +122,10 @@ Several options can include simple addition of the two colors, simple multiplica
 Finally, to render an object with multi-texturing, we can use the **draw\_multi\_tex\_object()** function
 
 ```cpp
-void draw_mulit_tex_object(GLuint obj, GLuint baseID, GLuint blendID, GLfloat mix);
+void draw_multi_tex_object(GLuint obj, GLuint baseID, GLuint blendID, GLfloat mix);
 ```
 
-where *obj* is the enum constant for the object to render, **baseID** is the base texture enum constant **blendID** is the second texture enum constant, and **mix** is a floating point value to determine the proportion of each texture to use (we are using the linear interpolation **mix()** shader function).
+where *obj* is the enum constant for the object to render, **baseID** is the base texture enum constant **blendID** is the second texture enum constant, and **mix** is a floating point value to determine the proportion of each texture to use (we are using the linear interpolation **mix()** shader function with this value).
 
 ### Tasks
 

@@ -41,17 +41,19 @@ In order to store the image of the scene from the perspective of the mirror, we 
 
 ### Tasks
 
-- Add code in **mirror.cpp** to **build\_mirror\_tex()** to creates an empty mirror texture for the environment map (which is allocated and bound for the *m\_texid* parameter that is passed as *MirrorTex*) that is *ww* by *hh* using **glTexImage2D()**
+- Add code in **textures.h** to **build\_mirror()** to allocate an empty texture for the environment map that is *ww* by *hh* using **glTexImage2D()**
 
 ```cpp
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, ww, hh, 0, GL_RGBA, GL_FLOAT, NULL);
 ```
 
-**Note:** When creating this texture, we did not build mipmaps as we will be loading the texture map dynamically each time we render the scene (thus it would be computationally expensive to continually regenerate mipmaps).
+> **Note:** When setting the filters for this texture, we did not build mipmaps as we will be loading the texture map dynamically each time we render the scene (thus it would be computationally expensive to continually regenerate mipmaps).
+
+- Add code in **textures.h** to **build\_textures()** to create the mirror texture using **build\_mirror()** passing the *MirrorTex* enum constant.
 
 ### Setting the mirror perspective
 
-We will create the effect of reflection by rendering the scene from the *point of view of the reflective object* and copy that image into the environment map. Therefore, the first thing we must do in the **render\_mirror\_tex( )** function is set an appropriate projection matrix using either **ortho( )** or **frustum( )**. The key here is to select extents that are representative of the reflective surface, i.e. usually with the near clipping plane at (or very near for a frustum) 0.0 which will be the object's surface, the far clipping plane set to capture the objects of interest, and the other extents to match the geometry of the object itself. Next we need to position the camera at the *center of the object* and point it *away from* the reflective surface. Depending on the desired effect, this direction can be either perpendicular to the surface or (more realistically) at an equal angle from the viewer (recall angle of incidence equals angle of reflection), see [How to calculate the reflection vector](https://www.fabrizioduroni.it/2017/08/25/how-to-calculate-reflection-vector/) for the math to compute this. Once the projection matrix and camera position are set appropriately, we simply render the scene *without* the reflective surface. This will create the "picture" of the scene from the point of view of the reflective surface in the framebuffer. However instead of using **glfwSwapBuffers( )** to display it on the screen, we will place the image *into a texture* using
+We will create the effect of reflection by rendering the scene from the *point of view of the reflective object* and copy that image into the environment map. Therefore, the first thing we must do in the **create\_mirror( )** function is set an appropriate projection matrix using either **ortho( )** or **frustum( )**. The key here is to select extents that are representative of the reflective surface, i.e. usually with the near clipping plane at (or very near for a frustum) 0.0 which will be the object's surface, the far clipping plane set to capture the objects of interest, and the other extents to match the geometry of the object itself. Next we need to position the camera at the *center of the mirror* and point it *away from* the reflective surface. Depending on the desired effect, this direction can be either perpendicular to the surface or (more realistically) at an equal angle from the viewer (recall angle of incidence equals angle of reflection), see [How to calculate the reflection vector](https://www.fabrizioduroni.it/2017/08/25/how-to-calculate-reflection-vector/) for the math to compute this. Once the projection matrix and camera position are set appropriately, we simply render the scene *without* the reflective surface. This will create the "picture" of the scene from the point of view of the reflective surface in the framebuffer. However instead of using **glfwSwapBuffers( )** to display it on the screen, we will *copy* the image *into a texture* using
 
 ```cpp
 glCopyTexImage2D(GL_TEXTURE_2D, level, format, x, y, w, h, border);
@@ -59,25 +61,25 @@ glCopyTexImage2D(GL_TEXTURE_2D, level, format, x, y, w, h, border);
 
 where *level* indicates the mipmap level to store the image into (which we will use level 0 for the environment map), *format* is the format to store the image in (usually **GL\_RGBA**), *x* and *y* are the initial lower-left *raster coordinates* of the framebuffer, *w* and *h* are the width and height of the image to capture, and *border* specifies a border width for the image.
 
-**Note:** **glCopyTexImage2D( )** copies the framebuffer into the *currently selected* texture map, so be careful to avoid overwritting a pre-existing object texture.
+**Note:** **glCopyTexImage2D( )** copies the framebuffer into the *currently selected* texture map, so be careful that the environment map texture is bound to avoid overwritting a pre-existing object texture.
 
-Also since the environment takes the image from the framebuffer, any effects used in rendering the scene, e.g. lighting and texture mapping, will appear in the reflection.
+Since the environment takes the image directly from the framebuffer, any effects used in rendering the scene, e.g. lighting and texture mapping, will appear in the reflection.
 
 ### Tasks
 
-- Add code in **mirror.cpp** to **render\_mirror\_tex( )** to set the *proj\_matrix* to a **frustum** with extents (-0.2,0.2,-0.2,0.2,0.2,100.0).
+- Add code in **mirrorMesh.cpp** to **create\_mirror( )** to set the *proj\_matrix* to a **frustum** with extents (-0.2,0.2,-0.2,0.2,0.2,100.0).
 
-- Add code in **mirror.cpp** to **render\_mirror\_tex( )** to set the *camera\_matrix* for the mirror camera position using **lookat** with *mirror_eye*, *mirror_center*, *mirror_up* as the vectors. **Note:** we will use *mirror_eye* as the translation transformation when we render the mirror.
+- Add code in **mirrorMesh.cpp** to **create\_mirror( )** to set the *camera\_matrix* for the mirror camera position using **lookat()** with *mirror_eye*, *mirror_center*, *mirror_up* as the vectors. **Note:** we will use *mirror_eye* as the translation transformation when we render the mirror.
 
-- Add code in **mirror.cpp** to **render\_mirror\_tex( )** after the scene has been rendered to activate **GL_TEXTURE0** using **glActiveTexture()**.
+- Add code in **mirrorMesh.cpp** to **create\_mirror( )** after the scene has been rendered to activate **GL_TEXTURE0** using **glActiveTexture()**.
 
-- Add code in **mirror.cpp** to **render\_mirror\_tex( )** to bind the *m\_texid* element of the *TextureIDs[]* array which will be the texture where the environment map is stored (i.e. the one created in the previous section).
+- Add code in **mirrorMesh.cpp** to **create\_mirror( )** to bind the *m_texid* element of the *TextureIDs[]* array which will be the texture where the environment map is stored (i.e. the one created in the previous section).
 
-- Add code in **mirror.cpp** to **render\_mirror\_tex( )** to copy the framebuffer to the bound environment map using **glCopyTexImage2D()** into level 0, using **GL_RGBA** format, starting at (0,0), of size (ww,hh), and with 0 border.
+- Add code in **mirrorMesh.cpp** to **create\_mirror( )** to copy the framebuffer to the bound environment map using **glCopyTexImage2D()** into level 0, using **GL_RGBA** format, starting at (0,0), of size (ww,hh), and with 0 border.
 
-- Add code to **main()** in the rendering loop to call **render\_mirror\_tex()** *before* rendering the actual scene with **display()**. Pass the *MirrorTex* index of the *TextureIDs[]* array which is the reference to the environment map.
+- Add code in **mirrorMesh.cpp** to **main()** in the rendering loop to call **create\_mirror()** *before* rendering the actual scene with **display()**. Pass the *MirrorTex* enum constant for the environment map.
 
-**Note:** To help with mirror positioning and extents, uncomment the **renderQuad()** function and comment out **display()** to render the environment map to the screen until it appears the way you would like.
+**Note:** To help with mirror positioning and extents, uncomment the **displayTex()** function and comment out **display()** to render the environment map to the screen (i.e. what will be textured onto the mirror) until it appears the way you would like.
 
 ## Rendering the Scene with Mirror
 
@@ -85,17 +87,17 @@ Once the map is created, we simply render the scene as usual (using **render\_sc
 
 ### Tasks
 
-- Add code in **render.cpp** to **render\_scene()** to compute *trans\_matrix* as a translation by *mirror\_eye*, i.e. place the mirror at the same spot that the mirror camera was located to generate the environment map. **Hint:** You can use the vector version of **translate()** rather than separate out the individual components.
+- Add code in **mirrorMesh.cpp** to **render\_scene()** to compute *trans\_matrix* as a translation by *mirror\_eye*, i.e. place the mirror at the same spot that the mirror camera was located to generate the environment map. **Hint:** You can use the vector version of **translate()** rather than separate out the individual components.
 
-- Add code in **render.cpp** to **render\_scene()** to compute *rot\_matrix* as a rotation by -90 degrees about the x-axis (so that the mirror is vertical in the scene).
+- Add code in **mirrorMesh.cpp** to **render\_scene()** to compute *rot\_matrix* as a rotation by -90 degrees about the x-axis (so that the mirror is vertical in the scene).
 
-- Add code in **render.cpp** to **render\_scene()** to compute *scale\_matrix* as a scaling by 2.0 along each axis.
+- Add code in **mirrorMesh.cpp** to **render\_scene()** to compute *scale\_matrix* as a scaling by 2.0 along the x and z axes (**note:** the y axis should be unchanged).
 
-- Add code in **render.cpp** to **render\_scene()** to compute *model\_matrix* as the product of the translation, rotation, and scaling matrices.
+- Add code in **mirrorMesh.cpp** to **render\_scene()** to compute *model\_matrix* as the product of the translation, rotation, and scaling matrices.
 
-- Add code in **render.cpp** to **render\_scene()** to draw the mirror using **drawTextureObject()** with the *plane* object and the *MirrorTex* index of the *TextureIDs[]* array.
+- Add code in **mirrorMesh.cpp** to **render\_scene()** to draw the mirror using **draw\_tex\_object()** with the *Mirror* object and the *MirrorTex* enum constant.
 
-**Note:** No new shader code was required as it simply is rendering the scene normally from two different perspectives.
+**Note:** No new shader code was required as it simply is rendering the scene normally from two different perspectives. Also, a wireframe object the same size as the mirror was drawn using a **GL\_LINE\_LOOP** to indicate the position of the mirror in the scene. Finally, since we are culling back faces, note that if you go behind the mirror you *do not* see the reflection (but can see through the mirror).
 
 ## Compiling and running the program
 
