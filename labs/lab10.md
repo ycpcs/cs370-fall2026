@@ -112,7 +112,7 @@ Also note that a *LightOn[]* array is being passed to the fragment shader using 
 
 You should be able to build and run the program by selecting **phongMesh** from the dropdown menu and clicking the small green arrow towards the right of the top toolbar.
 
-At this point you should see a spinning sphere and cube object with a point light and spot light illumination effect. **L** should turn the spotlight on/off and **spacebar** should toggle the animation.
+At this point you should see a spinning sphere and cube object with a point light and spot light illumination effect. **ENTER** should turn the spotlight on/off and **spacebar** should toggle the animation.
 
 > <img src="images/lab10/phongScene.png" alt="Phong Scene Window" height="500"/>
 
