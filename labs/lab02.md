@@ -43,7 +43,7 @@ While OpenGL has a mechanism for drawing indexed geometry, we will build the ver
 
 ### Tasks
 
-- Add code in **geometry.h** to **build\_gradient\_hexagon()** to define the *indices* vector (of type **ivec3** with a list of vertex indices for each of the four triangles shown in the hexagon figure above. **Note:** Indices start at 0 and be sure to use proper orientation for each triangle.
+- Add code in **geometry.h** to **build\_hexagon()** to define the *indices* vector (of type **ivec3** with a list of vertex indices for each of the four triangles shown in the hexagon figure above. **Note:** Indices start at 0 and be sure to use proper orientation for each triangle.
 
 - Add code in **geometry.h** to **build\_hexagon()** to set the *obj* parameter index for the *numVertices* array. **Hint:** There are 3 vertices per face.
 
@@ -57,7 +57,7 @@ Similarly to storing vertex coordinate data into a buffer, we will use the same 
  
 ### Tasks
 
-- Add code in **geometry.h** to **build\_gradient\_hexagon()** to define the *colors* vector (of type **vec4**) where the first vertex is blue, the next two vertices are red, the next two vertices are green, and the last vertex is blue (note for all colors we simply set the alpha channel to 1.0). For example, blue for the first vertex would be defined as
+- Add code in **geometry.h** to **build\_hexagon()** to define the *colors* vector (of type **vec4**) where the first vertex is blue, the next two vertices are red, the next two vertices are green, and the last vertex is blue (note for all colors we simply set the alpha channel to 1.0). For example, blue for the first vertex would be defined as
 
 ```cpp
 	// TODO: Define colors per vertex
@@ -66,9 +66,13 @@ Similarly to storing vertex coordinate data into a buffer, we will use the same 
 	};
 ```
 
-- Add code in **geometry.h** to **build\_gradient\_hexagon()** to bind the *c\_buff* parameter index from the *ColorBuffers* array (which will be set to *HexGradient* when the function is called).
+> **Note:** There should be the same number of colors as there are vertices.
 
-- Add code in **geometry.h** to **build\_gradient\_hexagon()** to load data from the *obj_colors* vector into the color buffer. **Hint:** To get the size (in bytes) of the *colors* vector, use
+- Add code in **geometry.h** in **build\_hexagon()** to call the **build\_gradient\_color\_buffer()** function passing the *indices* vector, the *colors* vector, and the *HexGradient* enum constant. This function will unpack the colors for the color buffer to ensure the proper ones are assigned to each vertex similar to the creation of the vertex buffer.
+
+- Add code in **geometry.h** to **build\_gradient\_color\_buffer()** to bind the *c\_buff* parameter index from the *ColorBuffers* array (which will be set to *HexGradient* when the function is called).
+
+- Add code in **geometry.h** to **build\_gradient\_color\_buffer()** to load data from the *obj_colors* vector into the color buffer. **Hint:** To get the size (in bytes) of the *colors* vector, use
 
 ```cpp
     sizeof(GLfloat)*colCoords*numVertices[obj]
