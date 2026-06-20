@@ -68,9 +68,9 @@ Similarly to storing vertex coordinate data into a buffer, we will use the same 
 
 > **Note:** There should be the same number of colors as there are vertices.
 
-- Add code in **geometry.h** in **build\_hexagon()** to call the **build\_gradient\_color\_buffer()** function passing the *indices* vector, the *colors* vector, and the *HexGradient* enum constant. This function will unpack the colors for the color buffer to ensure the proper ones are assigned to each vertex similar to the creation of the vertex buffer.
+- Add code in **geometry.h** in **build\_hexagon()** to call the **build\_gradient\_color\_buffer()** function passing the *indices* vector, the *colors* vector, and the *h\_buff* parameter (which will be set to the *HexGradient* enum constant). This function will unpack the colors for the color buffer to ensure the proper ones are assigned to each vertex similar to the creation of the vertex buffer.
 
-- Add code in **geometry.h** to **build\_gradient\_color\_buffer()** to bind the *c\_buff* parameter index from the *ColorBuffers* array (which will be set to *HexGradient* when the function is called).
+- Add code in **geometry.h** to **build\_gradient\_color\_buffer()** to bind the *c\_buff* parameter index from the *ColorBuffers* array.
 
 - Add code in **geometry.h** to **build\_gradient\_color\_buffer()** to load data from the *obj_colors* vector into the color buffer. **Hint:** To get the size (in bytes) of the *colors* vector, use
 

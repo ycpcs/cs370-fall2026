@@ -223,15 +223,17 @@ One way to add a background image to our scenes is to use a simple quad that is 
 
 - Add code in **geometry.h** to **build\_background()** to set texture coordinates for the vertices used to draw the square such that the upper right corner of the square has texture coordinate (2,2) and the lower left corner of the square has texture coordinate (-1,-1). **Note:** The square is using extended texture plane coordinates and the wrapping mode for the texture. **Hint:** It may be helpful to sketch the square on a piece of paper to ensure the texture coordinates match the corresponding vertices.
 
-- Add code in **drawObjects.h** to **draw\_background()** to set an orthographic projection matrix with extents (-1, 1, -1, 1, -1, 1)
+- Add code in **earthMoon.cpp** to **draw\_background()** to set an orthographic projection matrix with extents (-1, 1, -1, 1, -1, 1)
 
-- Add code in **drawObjects.h** to **draw\_background()** to set the camera matrix to the identity
+- Add code in **earthMoon.cpp** to **draw\_background()** to set the camera matrix to the identity
 
-- Add code in **drawObjects.h** to **draw\_background()** to set the model matrix to the identity
+- Add code in **earthMoon.cpp** to **draw\_background()** to set the model matrix to the identity
 
-- Add code in **drawObjects.h** to **draw\_background()** to call **draw\_tex\_object()** passing the *Background* and *Space* constants to draw the background object.
+- Add code in **earthMoon.cpp** to **draw\_background()** to call **draw\_tex\_object()** passing the *b\_obj* and *b\_tex* parameters containing the background object and texture constants to use for drawing the background object.
 
-- Add code in **drawObjects.h** to **draw\_background()** around the drawing command to disable/reenable writing to the depth buffer . **Hint:** Use the **glDepthMask()** function.
+- Add code in **earthMoon.cpp** to **draw\_background()** around the drawing command to disable/reenable writing to the depth buffer . **Hint:** Use the **glDepthMask()** function.
+
+- Add code in **earthMoon.cpp** to **display()** to call the **draw\_background()** function passing the *Background* and *Space* constants.
 
 ## Compiling and running the program
 
