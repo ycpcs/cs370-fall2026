@@ -80,8 +80,8 @@ Grades are assigned on a 100-point scale:
 
 Your overall grade for the course will be determined as follows:
 
--   Homework assignments: 30%
--   Midterm exams: 30%
+-   Homework assignments: 25%
+-   Midterm exams: 35%
 -   Final project: 40%
 
 ### Course website
@@ -90,13 +90,13 @@ Please check the [course web page](<http://ycpcs.github.io/cs370-fall2026/>), re
 
 ### Exams
 
-**No make-up exams will be given without approval of the instructor prior to class unless proof of extreme emergency or illness is provided.** All exams will be closed book, but syntax reference sheets will be provided.
+**No make-up exams will be given without approval of the instructor prior to class unless proof of extreme emergency or illness is provided.** All exams will be closed book.
 
 You must receive a score of 70+ on *at least one* exam to earn a passing grade for the course.
 
 ### Reading Assignments
 
-Reading assignments are posted on the [course schedule](schedule/index.html). I expect you to do the reading **before** class. Class time will be for asking questions about parts of the reading you did not understand to your satisfaction and working on the lab activity. The class format will consist of a brief discussions of the day's topic, such that the majority of the time can focus on completing the corresponding lab.
+Reading sections are posted on the [course schedule](schedule/index.html). It will be *very* beneficial if you look over the online notes prior to each class. Class time will be for asking questions about parts of the labs you did not understand to your satisfaction and working on the lab activity. The class format will consist of a brief discussions of the day's topic, such that the majority of the time can focus on completing the corresponding lab.
 
 ### Homework assignments
 
@@ -130,7 +130,7 @@ The written portion of assignments will be submitted as .pdf's via Canvas. Progr
 
 ### Attendance and Participation
 
-Students are expected to attend all scheduled classes and read the appropriate text material prior to class. If you must miss a class, it is your responsibility to notify the professor prior to class. Students are responsible for all material covered in class.
+Students are expected to attend all scheduled classes and look over the appropriate material prior to class. If you must miss a class, it is your responsibility to notify the professor prior to class. Students are responsible for all material covered in class.
 
 You may work ahead and submit any assignments **early**, but you **must not** fall behind. Class time is intended to be used for answering questions about the reading, labs, and assignments. You are responsible for keeping up with the reading assignments as described in the schedule.
 
