@@ -46,19 +46,3 @@ In the popup dialog, in the **Toolchain** drop down simply leave the default for
 > <img src="img/CLionMac.png" alt="OSX CLion Dialog" height="500"/>
 
 Then click **OK** to exit the dialog boxes. CLion will simply use the built-in OSX Terminal application.
-
-Next, in the upper-right corner, select the gear icon and **Settings** from the menubar.
-
-> <img src="img/CLionMacSettings1.png" alt="CLion Mac Select Settings Window" height="400"/>
-
-In the **Settings** dialog, select the **Build, Execution, Deployment->CMake** option, and expand the **Cache variables** section.
-
-> <img src="img/CMakeCache.png" alt="CLion Cache Settings Window" height="500"/>
-
-Find the **CMAKE_OSX_ARCHITECTURE** variable name (which should have a blank value)
-
-> <img src="img/CMakeOSX.png" alt="CMake OSX Window" height="500"/>
-
-Set the **CMAKE_OSX_ARCHITECTURE** variable to **arm64**, select the next box down which should add a CMake option flag **-DCMAKE_OSX_ARCHITECTURES:STRING=arm64**. Click **Apply** and **OK** to close the dialog box.
-
-> <img src="img/CMakeSilicon.png" alt="CMake Silicon Window" height="500"/>
