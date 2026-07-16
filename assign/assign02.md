@@ -3,27 +3,13 @@ layout: default
 title: "Assignment 2: Train Kept A Rollin' (hopefully not all night long)"
 ---
 
-**Written Questions Due: Tuesday, Sept 25th by 2:00 PM** (in class) Submit a **graded** pdf to Canvas by **Thursday, Sept 27th**.
+**Written Questions Due: Monday, Sept 28th by 12:30 PM** (in class) Submit a **graded** pdf to Canvas by **Wednesday, Sept 30th**.
 
 **Program Due:**
 
-**Milestone 1: Monday, Sept 22nd by 11:59 PM** 
+**Milestone 1: Tuesday, Sept 22nd by 11:59 PM** 
 
-**Milestone 2: Monday, Sept 29th by 11:59 PM** Late assignments will be penalized 20 points per day.
-
-## Getting Started
-
-Download [CS370\_Assign02\_Fa26.zip](src/CS370_Assign02_Fa26.zip), saving it into the **CS370\_Fa26** directory.
-
-Double-click on **CS370\_Assign02\_Fa26.zip** and extract the contents of the archive into a subdirectory called **CS370\_Assign02\_Fa26**
-
-Open CLion, select **CS370\_Fa26** from the main screen (you may need to close any open projects), and open the **CMakeLists.txt** file in this directory (**not** the one in the **CS370\_Assign02\_Fa26** subdirectory). Uncomment the line
-
-```cpp
-	add_subdirectory("CS370_Assign02_Fa26" "CS370_Assign02_Fa26/bin")
-```
-
-Finally, select **Reload changes** which should build the project and add **RollinTrain** to the dropdown menu at the top of the IDE window.
+**Milestone 2: Tuesday, Sept 29th by 11:59 PM** Late assignments will be penalized 20 points per day.
 
 ## Written Questions
 
@@ -50,6 +36,22 @@ Finally, select **Reload changes** which should build the project and add **Roll
 3.  Some of my research has been in the area of stereoscopic 3D images, which is now used extensively for VR. To create a stereoscopic 3D image, we simply render the scene from two different viewpoints (one to represent what the left eye would see and one to represent what the right eye would see) and then display the corresponding image to each eye using the VR headset. If the viewer is considered to be at the origin with an ocular spacing of Δ*x*, what are the appropriate **lookat()** functions to produce a stereo image pair? **Hint:** We need to render the scene from two different camera locations (separated by Δ*x*). Consider two possible locations where these cameras can be pointed, i.e. the **center** location, to produce a stereoscopic image.
 
 ## Programming assignment
+
+### Getting Started
+
+Download [CS370\_Assign02\_Fa26.zip](src/CS370_Assign02_Fa26.zip), saving it into the **CS370\_Fa26** directory.
+
+Double-click on **CS370\_Assign02\_Fa26.zip** and extract the contents of the archive into a subdirectory called **CS370\_Assign02\_Fa26**
+
+Open CLion, select **CS370\_Fa26** from the main screen (you may need to close any open projects), and open the **CMakeLists.txt** file in this directory (**not** the one in the **CS370\_Assign02\_Fa26** subdirectory). Uncomment the line
+
+```cpp
+	add_subdirectory("CS370_Assign02_Fa26" "CS370_Assign02_Fa26/bin")
+```
+
+Finally, select **Reload changes** which should build the project and add **RollinTrain** to the dropdown menu at the top of the IDE window.
+
+### Your Tasks
 
 Write a program that draws a 3D "train" scene using OpenGL. A sample executable is included in the **demo** directory as either **RollinTrainSolWin** or **RollinTrainSolMac**. The scene should include:
 

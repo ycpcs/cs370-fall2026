@@ -3,9 +3,13 @@ layout: default
 title: "Assignment 1: Don Quixote"
 ---
 
-**Written Questions Due Tues, Sept 16th by 2:00 PM** (in class) Submit a **graded** pdf to Canvas by **Thursday, Sept 18th**.
+**Written Questions Due Monday, Sept 14th by 12:30 PM** (in class) Submit a **graded** pdf to Canvas by **Wednesday, Sept 16th**.
 
-**Program Due: Wednesday, Sept 17th by 11:59 PM** Late assignments will be penalized 20 points per day.
+**Program Due:**
+
+**Milestone 1: Tuesday, Sept 8th by 11:59 PM** 
+
+**Milestone 2: Tuesday, Sept 15th by 11:59 PM** Late assignments will be penalized 20 points per day.
 
 ## Written Questions
 
@@ -81,13 +85,18 @@ Write a program that draws a simple 2D "windmill" scene using OpenGL. A sample e
 
 **The program MUST compile to receive any credit** (so develop incrementally). **Be sure to comment all creativity at the top of the source file.**
 
+**Milestone 1** - 45 points
+
 -   Create square object - 5 points
--   Create triangle object - 5 points
--   Create square color buffers - 7 points
--   Create triangle color buffers - 3 points
--   Draw shaded sky: 15 points
+-   Create square color buffers - 10 points
+-   Draw shaded sky: 10 points
 -   Draw shaded grass: 10 points
 -   Draw solid house: 10 points
+
+**Milestone 2** - 55 points
+
+-   Create triangle object - 5 points
+-   Create triangle color buffers - 5 points
 -   Draw fan: 15 points
 -   Draw shaded sun: 10 points
 -   Animation (keyboard, idle callbacks): 10 points

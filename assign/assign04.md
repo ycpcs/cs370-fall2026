@@ -3,27 +3,13 @@ layout: default
 title: "Assignment 4: Walking Man"
 ---
 
-**Written Questions Due: Tuesday, Nov 18th by 2:00 PM** (in class). Submit a **graded** pdf to Canvas by Thursday, Nov 20th.
+**Written Questions Due: Wednesday, Nov 18th by 12:30 PM** (in class). Submit a **graded** pdf to Canvas by **Friday, Nov 20th**.
 
 **Program Due:**
 
-**Milestone 1: Monday, Nov 10th by 11:59 PM** 
+**Milestone 1: Tuesday, Nov 10th by 11:59 PM** 
 
-**Milestone 2: Wednesday, Nov 19th by 11:59 PM** Late assignments will be penalized 20 points per day.
-
-## Getting Started
-
-Download [CS370\_Assign04\_Fa26.zip](src/CS370_Assign04_Fa26.zip), saving it into the **CS370_Fa26** directory.
-
-Double-click on **CS370\_Assign04\_Fa26.zip** and extract the contents of the archive into a subdirectory called **CS370\_Assign04\_Fa26**
-
-Open CLion, select **CS370_Fa26** from the main screen (you may need to close any open projects), and open the **CMakeLists.txt** file in this directory (**not** the one in the **CS370\_Assign04\_Fa26** subdirectory). Uncomment the line
-
-```cpp
-	add_subdirectory("CS370_Assign04_Fa26" "CS370_Assign04_Fa26/bin")
-```
-
-Finally, select **Reload changes** which should build the project and add **WalkingMan** to the dropdown menu at the top of the IDE window.
+**Milestone 2: Sunday, Nov 22nd by 11:59 PM** Late assignments will be penalized 20 points per day.
 
 ## Written Questions
 
@@ -53,7 +39,23 @@ Finally, select **Reload changes** which should build the project and add **Walk
 > 3.  Note that the texture plane actually extends infinitely in both directions.
 > 4.  Mark the texture coordinates on the texture plane, then "cut" this section out and "stretch" it to fit on the object. 
 
-### Programming assignment
+## Programming assignment
+
+### Getting Started
+
+Download [CS370\_Assign04\_Fa26.zip](src/CS370_Assign04_Fa26.zip), saving it into the **CS370_Fa26** directory.
+
+Double-click on **CS370\_Assign04\_Fa26.zip** and extract the contents of the archive into a subdirectory called **CS370\_Assign04\_Fa26**
+
+Open CLion, select **CS370_Fa26** from the main screen (you may need to close any open projects), and open the **CMakeLists.txt** file in this directory (**not** the one in the **CS370\_Assign04\_Fa26** subdirectory). Uncomment the line
+
+```cpp
+	add_subdirectory("CS370_Assign04_Fa26" "CS370_Assign04_Fa26/bin")
+```
+
+Finally, select **Reload changes** which should build the project and add **WalkingMan** to the dropdown menu at the top of the IDE window.
+
+### Your Tasks
 
 Write a program that draws a 3D scene of a walking player with articulated arms and legs along with a bouncing basketball into a translucent box sitting on a court. A sample executable is included in the **demo** directory as either **WalkingManSolWin.exe** or **WalkingManSolMac**. Keyboard controls are provided that allow an orthographic camera to be rotated using WASD. The scene should include:
 

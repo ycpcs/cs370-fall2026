@@ -5,9 +5,9 @@ title: "Final Project: Think Inside the Box!"
 
 **Program Due:**
 
-**Milestone 1: Thurs, Oct 16th in class**  7.5% - This milestone should demonstrate the basic geometry of the scene including the room walls and floor (but no ceiling for now) along with *at least* 3 other objects (placeholder objects can be used where more complex objects will eventually be located). An orthographic *third person* "birds-eye" view with an adjustable camera is acceptable at this point to see the entire room.
+**Milestone 1: Monday, Oct 19th in class**  7.5% - This milestone should demonstrate the basic geometry of the scene including the room walls and floor (but no ceiling for now) along with *at least* 3 other objects (placeholder objects can be used where more complex objects will eventually be located). An orthographic *third person* "birds-eye" view with an adjustable camera is acceptable at this point to see the entire room.
 
-**Milestone 2: Thurs, Nov 13th in class**  7.5% - This milestone should contain *most* of the geometry that will appear in the final scene (although a few placeholder objects can remain). There should be a perspective *first person* camera with controls that allow movement throughout the room (but not necessarily with collision detection). Lighting effects with *at least* 2 different lights *including at least one spotlight* should be present.
+**Milestone 2: Monday, Nov 16th in class**  7.5% - This milestone should contain *most* of the geometry that will appear in the final scene (although a few placeholder objects can remain). There should be a perspective *first person* camera with controls that allow movement throughout the room (but not necessarily with collision detection). Lighting effects with *at least* 2 different lights *including at least one spotlight* should be present.
 
 **Final Presentation:** 85% - Your final project will be demonstrated during the final exam period for the course (see the [schedule](../labs/schedule.html)). MAKE SURE to complete the [self-evaluation form](CS370_Final_Project_eval.docx) and submit it with your project. Late assignments will **NOT** be accepted. Your entire project folder will be uploaded to a shared Google Drive after you have presented your demo.
 

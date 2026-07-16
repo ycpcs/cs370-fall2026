@@ -3,27 +3,13 @@ layout: default
 title: "Assignment 3: LimeLight"
 ---
 
-**Written Questions Due: Thursday, Oct 23rd by 2:00 PM** (in class). Submit a **graded** pdf to Canvas by **Saturday, Oct 25th**.
+**Written Questions Due: Monday, Oct 26th by 12:30 PM** (in class). Submit a **graded** pdf to Canvas by **Wednesday, Oct 28th**.
 
 **Program Due:**
 
-**Milestone 1: Friday, Oct 10th by 11:59 PM** 
+**Milestone 1: Thursday, Oct 8th by 11:59 PM** 
 
-**Milestone 2: Monday, Oct 27th by 11:59 PM** Late assignments will be penalized 20 points per day.
-
-## Getting Started
-
-Download [CS370\_Assign03\_Fa26.zip](src/CS370_Assign03_Fa26.zip), saving it into the **CS370\_Fa26** directory.
-
-Double-click on **CS370\_Assign03\_Fa26.zip** and extract the contents of the archive into a subdirectory called **CS370\_Assign03\_Fa26**
-
-Open CLion, select **CS370\_Fa26** from the main screen (you may need to close any open projects), and open the **CMakeLists.txt** file in this directory (**not** the one in the **CS370\_Assign03\_Fa26** subdirectory). Uncomment the line
-
-```cpp
-	add_subdirectory("CS370_Assign03_Fa26" "CS370_Assign03_Fa26/bin")
-```
-
-Finally, select **Reload changes** which should build the project and add **LimeLight** to the dropdown menu at the top of the IDE window.
+**Milestone 2: Tuesday, Oct 27th by 11:59 PM** Late assignments will be penalized 20 points per day.
 
 ## Written Questions
 
@@ -54,7 +40,23 @@ Finally, select **Reload changes** which should build the project and add **Lime
 > - **GL\_SRC\_ALPHA**/**GL\_ONE\_MINUS\_SRC\_ALPHA**
 > - **GL\_SRC\_ALPHA**/**GL\_ONE** 
 
-### Programming assignment
+## Programming assignment
+
+### Getting Started
+
+Download [CS370\_Assign03\_Fa26.zip](src/CS370_Assign03_Fa26.zip), saving it into the **CS370\_Fa26** directory.
+
+Double-click on **CS370\_Assign03\_Fa26.zip** and extract the contents of the archive into a subdirectory called **CS370\_Assign03\_Fa26**
+
+Open CLion, select **CS370\_Fa26** from the main screen (you may need to close any open projects), and open the **CMakeLists.txt** file in this directory (**not** the one in the **CS370\_Assign03\_Fa26** subdirectory). Uncomment the line
+
+```cpp
+	add_subdirectory("CS370_Assign03_Fa26" "CS370_Assign03_Fa26/bin")
+```
+
+Finally, select **Reload changes** which should build the project and add **LimeLight** to the dropdown menu at the top of the IDE window.
+
+### Your Tasks
 
 Write a program that draws a 3D stage scene with three "actors" and several lights using OpenGL. A sample executable is included in the **demo** directory as either **LimeLightSolWin.exe** or **LimeLightSolMac**. The scene should include:
 
