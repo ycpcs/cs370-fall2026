@@ -11,11 +11,9 @@ title: Syllabus
 
 Instructor(s): 
 
-**Section 101 (12:30pm):** Dr. David Babcock <dbabcock@ycp.edu>
+Dr. David Babcock <dbabcock@ycp.edu>
 
-Office Hours (KEC117A): 
-
-Dr. Babcock:  by appointment
+Office Hours (KEC117A): M 10AM-12PM, T 9:30-11AM, W 2-3PM, R 9:30-11AM, or by appointment
 
 Class times:
 
