@@ -33,14 +33,14 @@ Download and install [Visual Studio 2022 (or newer)](https://visualstudio.micros
 	```cpp
 	$ sudo xcode-select --install
 	```
-
-3. Follow the [CS370\_Setup](CS370_Setup.html) instructions for creating the root project folder.
-    
+	    
 ### CLion
 
 1.  Create a [JetBrains](https://www.jetbrains.com/community/education/#students) account with your YCP email to obtain a free license. 
 
 2. Download and install [CLion](https://www.jetbrains.com/clion/) and accept the defaults during the installation process.
+
+3. Follow the [CS370\_Setup](CS370_Setup.html) instructions for creating the root project folder.
 
 ## Linux - USE AT YOUR OWN RISK
 
