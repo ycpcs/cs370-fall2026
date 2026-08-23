@@ -19,7 +19,7 @@ Class times:
 
  Section  | Days      |  Time        | Room    | Final Exam (Demos)
  -------- | --------  |  ----------- | ------- | ----------
-101       | Mon/Wed   | 12:30-1:45PM | KEC 119 | Mon, Dec 14 - 12:30pm
+101       | Mon/Wed   | 12:30-1:45PM | KEC 124 | Mon, Dec 14 - 12:30pm
 
 ### Course Description
 
