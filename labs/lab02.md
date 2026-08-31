@@ -94,7 +94,7 @@ Similarly to storing vertex coordinate data into a buffer, we will use the same 
     glEnableVertexAttribArray(color_vCol);
 ```
 
-- Add code in **geometry.h** to **build\_geometry()** to call the **build\_gradient\_hexagon()** function passing the *Hexagon* object constant and the *HexGradient* color constant.
+- Add code in **geometry.h** to **build\_hexagon()** to call the **build\_gradient\_hexagon()** function passing the *Hexagon* object constant and the *HexGradient* color constant.
 
 ## Compiling and running the program
 
