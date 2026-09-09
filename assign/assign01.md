@@ -118,7 +118,7 @@ When you are done, submit the assignment to the Marmoset server using the **Marm
 
 Enter your [Marmoset](https://cs.ycp.edu/marmoset) username and password, if successful you should see a message confirming the submission.
 
-> <img src="images/assign01/Assign01Submit.png" alt="Submit Successful" height="500"/>
+> <img src="images/assign01/Assign01Submit.png" alt="Submit Successful" height="100"/>
 
 **You are responsible for making sure that your submission contains the correct file(s).**
 
