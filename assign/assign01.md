@@ -114,30 +114,11 @@ To quit the program simply close the window.
 
 ## Submitting to Marmoset
 
-When you are done, submit the assignment to the Marmoset server using the Terminal window in CLion (click **Terminal** at the bottom left of the IDE). Navigate to the directory using
+When you are done, submit the assignment to the Marmoset server using the **Marmoset plugin** in CLion.
 
-<pre>
-% <b>cd CS370_Assign01_Fa26</b>
-CS370_Fa26/CS370_Assign01_Fa26 % <b>make submit</b>
-</pre>
+Enter your [Marmoset](https://cs.ycp.edu/marmoset) username and password, if successful you should see a message confirming the submission.
 
-Enter your [Marmoset](https://cs.ycp.edu/marmoset) username and password, if successful you should see
-
-<pre>
-######################################################################
-              >>>>>>>> Successful submission! <<<<<<<<<
-
-Make sure that you log into the marmoset server to manually
-check that the files you submitted are correct.
-
-Details:
-
-         Semester:   Fall 2026
-         Course:     CS 370
-         Assignment: assign01
-
-######################################################################
-</pre>
+> <img src="images/assign01/Assign01Submit.png" alt="Submit Successful" height="500"/>
 
 **You are responsible for making sure that your submission contains the correct file(s).**
 
