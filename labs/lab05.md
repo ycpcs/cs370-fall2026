@@ -67,7 +67,7 @@ glEnable(GL_CULL_FACE);
 
 - Add code in **orthoCube.cpp** to **main()** to *enable* back face culling via the **GL\_CULL\_FACE** flag.
 
-- Add code in **orthoCube.cpp** to **display()** to also clear the depth buffer via the **GL\_DEPTH\_BUFFER\_BIT** flag (simply **|** the constants together in the call). What happens if you forget to do this?
+- Add code in **orthoCube.cpp** to **display()** to also clear the depth buffer via the **GL\_DEPTH\_BUFFER\_BIT** flag (simply **\|** the constants together in the call). What happens if you forget to do this?
 
 - Add code in **geometry.h** to **build\_cube()** to initialize the **indices** vector for all six faces based on the provided vertices which are shown in the figure below. **Hint:** You will need two triangles (with proper orientation) for each of the six faces, thus there should be 12 **ivec3** sets of 3 indices (36 indices total).
 
