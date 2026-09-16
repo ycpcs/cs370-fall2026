@@ -42,12 +42,12 @@ courseInfo.classPeriods = [
 		file: "CS370_Lab07"
 	},
 	{
-		topic: new Topic("Lab 8: Writing Shaders", "lab08.html"),
-		reading: "Ch. 2",
-		file: "CS370_Lab08"
+		topic: new TopicNoLab("NO CLASS - Career Expo"),
 	},
 	{
-		topic: new TopicNoLab("Exam Review")
+		topic: new DoubleTopic("Lab 8: Writing Shaders", "lab08.html","Exam Review","")
+		reading: "Ch. 2",
+		file: "CS370_Lab08"
 	},
 	{
 		topic: new TopicNoLab("Exam 1")
