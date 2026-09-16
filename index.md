@@ -25,6 +25,7 @@ Welcome to the website for CS 370, Computer Graphics Programming I, at York Coll
 * **Sept 14** - [Assignment 1 Written](assign/assign01.html) Due - upload *self-graded* .pdf to Canvas by **Sept 16**.
 * **Sept 15** - [Assignment 1 Milestone 2 Program](assign/assign01.html) Due - upload to [Marmoset](https://cs.ycp.edu/marmoset).
 * **Sept 22** - [Assignment 2 Milestone 1 Program](assign/assign02.html) Due.
+* **Sept 23 - NO CLASS, Career Expo**
 * **Sept 28** - [Assignment 2 Written](assign/assign02.html) Due - upload *self-graded* .pdf to Canvas by **Sept 30**.
 * **Sept 29** - [Assignment 2 Milestone 2 Program](assign/assign02.html) Due.
 * **Sept 30 - EXAM I**
