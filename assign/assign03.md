@@ -7,7 +7,7 @@ title: "Assignment 3: LimeLight"
 
 **Program Due:**
 
-**Milestone 1: Thursday, Oct 8th by 11:59 PM** 
+**Milestone 1: Friday, Oct 9th by 11:59 PM** 
 
 **Milestone 2: Tuesday, Oct 27th by 11:59 PM** Late assignments will be penalized 20 points per day.
 
