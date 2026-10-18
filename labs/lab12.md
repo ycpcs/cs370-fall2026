@@ -51,7 +51,7 @@ Then to add a new mesh (at the origin) simply hit \<Shift\>-A which should pop u
 
 After the mesh has been added, there may be a dialog box in the lower left portion of the main window that will allow configuration of the added mesh typically including the default size, location, and orientation.
 
-Some additional meshes can be obtained by choosing **Edit->Preferences->Add-ons->Add Mesh: Extra Objects** from the menu bar.
+Some additional meshes can be obtained by choosing **Edit->Preferences->Get Extensions->Extra Mesh Objects** from the menu bar.
 
 ### Multiple Meshes
 
@@ -71,15 +71,19 @@ You can also combine several meshes together, which is necessary for our model l
 
 - In the configuration dialog, change the size to 3 m.
 
-- In the configuration dialog, rotate about the x-axis by 90 degrees (since the default orientation is with the z-axis being up).
-
 ## Exporting a Mesh
 
-To export the mesh, from the menu bar select **File->Export->Wavefront (.obj) (legacy)**
+To export the mesh, from the menu bar select **File->Export->Wavefront (.obj)**
 
 > <img src="images/lab12/BlenderExport.png" alt="Blender Export Window" height="400"/>
 
-Select the location where you want to export the file and the name for the file. In the lower right panel, make sure in the Transform tab that Up is set to **Y up**. Then expand the Geometry tab and make sure the selections match the figure below, i.e. only **Apply Modifiers**, **Write Normals**, **Include UVs**, and **Triangulate Faces** are checked, i.e. **UNCHECK** **Write Materials**. This will produce a file that can be imported by the basic model loader we are using.
+In the left-hand pane, select the location where you want to export the file and enter the name at the bottom. In the right panel, make sure:
+
+-  In the **General** tab, make sure **Up Axis** is set to **Y**. (You may also want to adjust **Forward Axis** as desired.)
+
+- In the **Geometry** tab, make sure the selections match the figure below, i.e. **UV Coordinates** (for texture coordinates), **Normals** (for lighting), **Triangulated Mesh** (to tesselate using triangles), **Apply Modifiers**, and **Apply Transform** are checked.
+
+- **UNCHECK** **Materials** otherwise the file will not import properly with the basic model loader we are using.
 
 > <img src="images/lab12/BlenderSettings.png" alt="Blender Settings Window" height="300"/>
 
@@ -105,6 +109,6 @@ At this point you should see a cube and Blender monkey with lighting.
 
 To quit the program simply close the window.
 
-Congratulations, you have now created a simple model in a modeling program and imported it into an application.
+Congratulations, you have now created a simple model in a modeling program and imported it into an application. You may want to try to make more complicated models that combine several meshes together, e.g. put a cone on top of the monkey.
 
 Next we will greatly enhance the visual appearance of our objects using texture mapping.
